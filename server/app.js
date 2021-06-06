@@ -11,6 +11,9 @@ require('dotenv').config();
 db.sequelize.sync();
 
 app.use(cors());
+app.use("/api/crash", crashRouter);
+app.use("/api/driver", driverRouter);
+app.use("/api/vehicle", vehicleRouter);
 
 app.listen(process.env.SERVER_PORT, () => {
     console.log(`Server listening at http://localhost:${process.env.SERVER_PORT}`)
