@@ -11,6 +11,7 @@ require('dotenv').config();
 db.sequelize.sync();
 
 app.use(cors());
+
 app.use("/api/crash", crashRouter);
 app.use("/api/driver", driverRouter);
 app.use("/api/vehicle", vehicleRouter);
