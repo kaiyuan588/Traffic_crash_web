@@ -29,4 +29,8 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.crash = require("./crash.model.js")(sequelize, Sequelize);
+db.driver = require("./driver.model.js")(sequelize, Sequelize);
+db.vehicle = require("./vehicle.model.js")(sequelize, Sequelize);
+
 module.exports = db;
