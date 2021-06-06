@@ -5,11 +5,9 @@ const API = process.env.REACT_APP_API_URL;
 export const getCrashes = () => {
     return fetch(`${API}/crash`, {
         method: "GET"
-    })
-        .then(response => {
+    }).then(response => {
             return response.json();
-        })
-        .catch(err => console.log(err));
+    }).catch(err => console.log(err));
 };
 
 export const getVehiclesByReportNumber = (report_number) => {

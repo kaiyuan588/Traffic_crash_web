@@ -39,6 +39,7 @@ export default function Map() {
 
   const init = () => {
     getCrashes().then(data => {
+       
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
