@@ -11,13 +11,16 @@ export default function App() {
       <div className="header-container">
         <Header />
       </div>
-      <div className="map-list-container">
-        <div className="map-container">
+      <div className="map-container">
+        <div>
           <Map />
         </div>
         <div className="list-container">
           <CrashList />
         </div>
+      </div>
+      <div className="chart-container">
+        
       </div>
     </div>
   );

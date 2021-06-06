@@ -7,13 +7,17 @@
   background-color: antiquewhite;
 }
 
-.map-list-container {
+.map-container {
   display: flex;
-  justify-content: left;
 }
 
 .list-container {
   padding: 0.5%;
-  height: 29.5rem;
-  overflow-y: scroll;
+  height: 35rem;
+  overflow-y: scroll; 
+} 
+
+.chart-container {
+  height: 20rem;
+  background-color: red;
 }
