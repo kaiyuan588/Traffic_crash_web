@@ -1,0 +1,19 @@
+{
+  "name": "traffic_crash_web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaiyuan588/Traffic_crash_web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaiyuan588/Traffic_crash_web/issues"
+  },
+  "homepage": "https://github.com/kaiyuan588/Traffic_crash_web#readme"
+}
