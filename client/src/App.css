@@ -3,21 +3,23 @@
 }
 
 .header-container {
-  height: 100px;
-  background-color: antiquewhite;
+  height: 70px;
+  border-bottom: 5px solid rgb(30, 105, 192);
 }
 
-.map-container {
+.row {
   display: flex;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.list-container {
-  padding: 0.5%;
-  height: 35rem;
-  overflow-y: scroll; 
-} 
+.left {
+  flex: 70%;
+}
 
-.chart-container {
-  height: 20rem;
-  background-color: red;
+.right {
+  flex: 30%;
+  padding: 0.5%;
+  height: 58rem;
+  overflow-y: scroll; 
 }

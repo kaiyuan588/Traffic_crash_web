@@ -1,0 +1,8 @@
+.algin-left {
+    display: flex;
+    align-items: left;
+}
+.margin-top {
+    margin-top: 0.5%;
+    font-family: "Graphik-Semibold","Helvetica Neue",helvetica,arial,sans-serif;
+}
