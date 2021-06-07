@@ -1,12 +1,9 @@
 {
-  "homepage": "http://kaiyuan588.github.io/Traffic_crash_web",
   "name": "traffic_crash_web",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/kaiyuan588/Traffic_crash_web/issues"
   },
-  // "homepage": "https://github.com/kaiyuan588/Traffic_crash_web#readme",
+  "homepage": "https://github.com/kaiyuan588/Traffic_crash_web#readme",
   "devDependencies": {
     "gh-pages": "^3.2.0"
   }

@@ -6,7 +6,7 @@ module.exports = {
     USER: process.env.DB_USER,
     PASSWORD: process.env.DB_PASSWORD,
     DATABASE: process.env.DB_SCHEMA,
-    dialect: "mysql",
+    dialect: process.env.DIALECT,
     pool: {
         max: 5,
         min: 0,
