@@ -8,9 +8,10 @@ module.exports = {
     DATABASE: process.env.DB_SCHEMA,
     dialect: process.env.DIALECT,
     pool: {
-        max: 5,
-        min: 0,
+        max: 15,
+        min: 5,
         acquire: 30000,
-        idle: 10000
+        idle: 20000,
+        evict: 15000
     }
 };
