@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Card, Badge, Container, Row, Table} from 'react-bootstrap';
+import { Card, Badge, Container, Row, Table, Col } from 'react-bootstrap';
 import { getVehiclesByReportNumber, getDriversByVehicleNumber } from "../api/api";
 import "./crash-card.css";
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en';
+
+TimeAgo.addDefaultLocale(en)
 
 export default function CrashCard({ crash }) {
     const [vehicleDetail, setVehicleDetail] = useState([]);
@@ -54,7 +58,13 @@ export default function CrashCard({ crash }) {
     }
 
     const genderMap = (sex) => {
-        return sex === "F"? "Female": "Male";
+        return sex === "F" ? "Female" : "Male";
+    }
+
+    const timeAgo = (time) => {
+        const timeAgo = new TimeAgo('en-US')
+        const timeStamp = new Date(time).getTime();
+        return timeAgo.format(Date.now() - (timeStamp - Date.now()))
     }
 
     useEffect(() => {
@@ -69,7 +79,8 @@ export default function CrashCard({ crash }) {
                         <Badge variant={injuryMap(crash.crash_severity)} className="float-right">{crash.crash_severity}</Badge>
                     </Row>
                     <Row>
-                        {crash.on_street} @ {crash.city}, {crash.county}
+                        <Col xs={9} className="crash-card-col">{crash.on_street} @ {crash.city}, {crash.county} </Col>
+                        <Col className="crash-card-col text-right">{timeAgo(crash.crash_date_time)}</Col>
                     </Row>
                 </Container>
             </Card.Header>
@@ -77,20 +88,22 @@ export default function CrashCard({ crash }) {
             <Card.Body>
                 {vehicleDetail.map((vehicle) => (
                     <Table striped bordered hover>
-                        <tr>
-                            <th>Vehicle {vehicle.vehicle_number}</th>
-                            <td>{vehicle.color} {vehicle.year} {vehicle.make} {vehicle.model}</td>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-                            <td>Vehicle was <b>{vehicle.maneuver}</b> in <b>{vehicle.traveling_on_street}</b> heaing <b>{vehicle.traveling_direction}</b></td>
-                        </tr>
-                        {vehicle.drivers.map((driver) => (
+                        <tbody>
                             <tr>
-                                <th>Person {driver.person_number}</th>
-                                <td> {genderMap(driver.sex)}, {driver.age} years old <Badge variant={injuryMap(driver.injury_severity)} className="float-right">{driver.injury_severity}</Badge> </td>
+                                <th>Vehicle {vehicle.vehicle_number}</th>
+                                <td>{vehicle.color} {vehicle.year} {vehicle.make} {vehicle.model}</td>
                             </tr>
-                        ))}
+                            <tr>
+                                <th>Description</th>
+                                <td>Vehicle was <b>{vehicle.maneuver}</b> in <b>{vehicle.traveling_on_street}</b> heaing <b>{vehicle.traveling_direction}</b></td>
+                            </tr>
+                            {vehicle.drivers.map((driver) => (
+                                <tr>
+                                    <th>Person {driver.person_number}</th>
+                                    <td> {genderMap(driver.sex)}, {driver.age} years old <Badge variant={injuryMap(driver.injury_severity)} className="float-right">{driver.injury_severity}</Badge> </td>
+                                </tr>
+                            ))}
+                        </tbody>
                     </Table>
 
                 ))}

@@ -14,8 +14,8 @@ require('dotenv').config();
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  height: "60vh",
-  width: "70vw",
+  height: "58vh",
+  width: "63vw",
 };
 const options = {
   styles: mapStyles,
@@ -39,7 +39,6 @@ export default function Map() {
 
   const init = () => {
     getCrashes().then(data => {
-       
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
@@ -79,6 +78,10 @@ export default function Map() {
             position={{ lat: crash.latitude, lng: crash.longitude }}
             onClick={() => {
               setSelected(crash);
+            }}
+            icon={{
+              url: "../test.svg",
+              scaledSize: new window.google.maps.Size(18,18)
             }}
           />
         ))}
